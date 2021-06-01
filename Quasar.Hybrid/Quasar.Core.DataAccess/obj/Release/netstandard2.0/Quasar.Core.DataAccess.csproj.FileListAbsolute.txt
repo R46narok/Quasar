@@ -1,0 +1,8 @@
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.DataAccess\bin\Release\netstandard2.0\Quasar.Core.DataAccess.deps.json
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.DataAccess\bin\Release\netstandard2.0\Quasar.Core.DataAccess.dll
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.DataAccess\bin\Release\netstandard2.0\Quasar.Core.DataAccess.pdb
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.DataAccess\obj\Release\netstandard2.0\Quasar.Core.DataAccess.AssemblyInfoInputs.cache
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.DataAccess\obj\Release\netstandard2.0\Quasar.Core.DataAccess.AssemblyInfo.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.DataAccess\obj\Release\netstandard2.0\Quasar.Core.DataAccess.csproj.CoreCompileInputs.cache
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.DataAccess\obj\Release\netstandard2.0\Quasar.Core.DataAccess.dll
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.DataAccess\obj\Release\netstandard2.0\Quasar.Core.DataAccess.pdb

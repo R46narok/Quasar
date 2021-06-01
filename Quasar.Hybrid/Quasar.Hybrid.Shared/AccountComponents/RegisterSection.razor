@@ -1,0 +1,67 @@
+﻿@using System.Net.Http
+@using System.Text
+@using System.Text.Json
+@using Quasar.Core
+@using Quasar.Core.DataAccess
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject User User
+
+
+<div  class="container reg-log-section">
+    <h3>Join team Quasar now</h3>
+    <p style="color: rgb(74,75,77);">Experience fully your Gen1 device. Improve your everyday life.</p>
+
+    <input type="text" class="username-field" placeholder="Username"
+           @bind="UsernameValue" @oninput="e => { UsernameValue = (string) e.Value; }">
+
+    <p></p>
+
+    <input type="email" class="email-field" placeholder="Email@example.com"
+           @bind="EmailValue" @oninput="@((e) => { EmailValue = (string)e.Value;})">
+
+    <p></p>
+
+    <input type="password" class="pass-field" placeholder="Password"
+           @bind="PasswordValue" @oninput="e => { PasswordValue = (string) e.Value; }">
+
+    <p></p>
+
+    <button class="btn btn-primary" type="button" style="background-color: rgb(249,178,51)" @onclick="RegisterBtnClicked">Register</button>
+    <button class="btn btn-primary secondary-btn" type="button" style="background-color: rgb(72,74,77);" @onclick="LoginBtnClicked">Log in</button>
+</div>
+
+@code {
+
+
+    private string UsernameValue { get; set; } = string.Empty;
+    private string EmailValue { get; set; } = string.Empty;
+    private string PasswordValue { get; set; } = string.Empty;
+
+
+    private async Task RegisterBtnClicked()
+    {
+        var salt = UserCredentialsHasher.GenerateSalt(64);
+        var passwordBytes = Encoding.UTF8.GetBytes(PasswordValue);
+
+        User user = new User
+        {
+            Username = UsernameValue,
+            Email = EmailValue,
+            PasswordHash = UserCredentialsHasher.GenerateHash(passwordBytes, salt, 10, passwordBytes.Length),
+            PasswordIterations = 10,
+            PasswordSalt = salt
+        };
+
+        var json = JsonSerializer.Serialize(user);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        await HttpClient.PostAsync("api/user/register", content);
+    }
+
+
+    private void LoginBtnClicked()
+    {
+        NavigationManager.NavigateTo("/login");
+    }
+}
