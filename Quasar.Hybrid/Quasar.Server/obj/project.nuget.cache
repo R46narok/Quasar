@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dhT0hanc0L3tOPdl/DyLArBJN0xKjJb9PYynuf5MuPbaCYykAFkk98NDgYimRUcueQgn4sidJ3ehwJbdMh6DBA==",
+  "dgSpecHash": "13tecc+N8XwLVsSJ4o8E+xlqZHi5a/6XE51YVlMWsZML4MjNRNu2Y6peg/JwE4RM8xOyERQcL4j1bbGYo6iAmw==",
   "success": true,
   "projectFilePath": "D:\\Development\\Projects\\Quasar\\Quasar.Hybrid\\Quasar.Server\\Quasar.Server.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.jsinterop\\3.1.11\\microsoft.jsinterop.3.1.11.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.5\\microsoft.visualstudio.web.codegeneration.3.1.5.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.5\\microsoft.visualstudio.web.codegeneration.contracts.3.1.5.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.5\\microsoft.visualstudio.web.codegeneration.core.3.1.5.nupkg.sha512",

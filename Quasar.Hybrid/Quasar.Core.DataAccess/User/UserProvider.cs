@@ -6,6 +6,9 @@ using MongoDB.Driver;
 
 namespace Quasar.Core.DataAccess
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserProvider
     {
         private IMongoCollection<User> _userCollection;
@@ -69,17 +72,27 @@ namespace Quasar.Core.DataAccess
             return null;
         }
 
+        /// <summary>
+        /// Checks if a user with the provided username exists. If they do,
+        /// the method compares the two password hashes(from the database and from the args) to
+        /// authenticate a user.
+        /// </summary>
+        /// <param name="credentials">Valid username from the db.</param>
+        /// <returns>Null if the username is not present.</returns>
         public User AuthenticateUser(UserCredentials credentials)
         {
             var filter = Builders<User>.Filter.Eq(u => u.Username, credentials.Username);
             var dbRecord = _userCollection.Find(filter).FirstOrDefault();
 
             if (dbRecord != null && credentials.PasswordHash.SequenceEqual(dbRecord.PasswordHash))
+            {
                 return new User
                 {
                     Email = dbRecord.Email,
                     Username = dbRecord.Username
                 };
+            }
+                
 
             return null;
         }

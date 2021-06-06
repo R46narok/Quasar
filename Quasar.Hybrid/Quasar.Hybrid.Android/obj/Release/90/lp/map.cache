@@ -1,5 +1,7 @@
 FormsViewGroup
 Microsoft.MobileBlazorBindings.WebView.Android
+Plugin.BluetoothLE
+Plugin.Permissions
 Xamarin.AndroidX.Activity
 Xamarin.AndroidX.Annotation
 Xamarin.AndroidX.AppCompat.AppCompatResources

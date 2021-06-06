@@ -4,8 +4,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.MobileBlazorBindings;
+using Plugin.BluetoothLE;
+using Plugin.Permissions;
 using Quasar.Core;
 using Quasar.Core.DataAccess;
+using Quasar.Core.Native.Bluetooth;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -29,8 +32,8 @@ namespace Quasar.Hybrid
                     httpClient.BaseAddress = new Uri("https://192.168.0.103:5001/");
 
                     services.AddSingleton(httpClient);
-
                     services.AddSingleton<User>();
+                    services.AddSingleton<BleConnectionManager>();
                     // Register app-specific services
                 })
                 .UseWebRoot("wwwroot");
@@ -51,6 +54,7 @@ namespace Quasar.Hybrid
 
         protected override void OnStart()
         {
+            CrossPermissions.Current.RequestPermissionAsync<LocationPermission>();
         }
 
         protected override void OnSleep()

@@ -1,0 +1,16 @@
+services:
+  quasar.server:
+    build:
+      context: D:\Development\Projects\Quasar\Quasar.Hybrid
+      dockerfile: Quasar.Server/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: quasarserver
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\Asus\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Asus\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

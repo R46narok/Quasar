@@ -1,13 +1,18 @@
 ﻿@using Quasar.Core
+@using Quasar.Core.DataAccess
 @inject User User
 @inject NavigationManager NavigationManager
 
 <nav class="navbar navbar-light navbar-expand-md fixed-top custom-header">
     <div class="container-fluid">
         <div>
-            <a class="navbar-brand" href="#" style="font-family: ABeeZee, sans-serif;">Quasar<span>&nbsp;
-                <img class="img-fluid quasar-icon" src="/img/quasar(1).svg"></span> 
-                </a>
+            <a class="navbar-brand" href="/" style="font-family: ABeeZee, sans-serif;">
+                Quasar
+                <span>
+                    &nbsp;
+                    <img class="img-fluid quasar-icon" src="/img/quasar(1).svg">
+                </span>
+            </a>
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
@@ -19,6 +24,7 @@
                 <li class="nav-item" role="presentation"><a class="nav-link" href="#">Privacy</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="#">Lab</a></li>
             </ul>
+
             @if (string.IsNullOrWhiteSpace(User.Username))
             {
                 <button class="btn btn-primary ml-auto login-btn" type="button" style="background-color: rgb(41,44,47);"
@@ -34,7 +40,7 @@
                             <img class="dropdown-image" src="img/avatar.jpg">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" role="menu">
-                            <a class="dropdown-item" role="presentation" href="#">Profile</a>
+                            <a class="dropdown-item" role="presentation" href="/profile">Profile</a>
                             <a class="dropdown-item" role="presentation" href="#">Settings</a>
                             <a class="dropdown-item" role="presentation" href="#">Logout </a>
                         </div>
@@ -46,7 +52,7 @@
 </nav>
 
 @code {
-
+     
     public static NavMenu Instance { get; set; }
 
     protected override void OnInitialized()

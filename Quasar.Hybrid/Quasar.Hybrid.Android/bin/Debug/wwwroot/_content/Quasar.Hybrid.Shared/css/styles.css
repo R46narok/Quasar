@@ -16,6 +16,45 @@ html {
     }
 }
 
+.profile-section {
+    /*text-align: right;*/
+    padding: 120px 0;
+}
+
+.profile-nav {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.profile-nav-link {
+    margin-left: 15px;
+    /*padding-bottom: 15px;*/
+    color: rgb(48,45,45);
+}
+
+.avatar-img {
+    min-width: 70%;
+}
+
+.profile-section-title {
+    color: rgb(75,69,68);
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.edit-profile-btn {
+    width: inherit;
+}
+
+.mobile-nav-link {
+    font-size: 15px;
+}
+
+.mobile-nav-icon {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
 #login {
     padding: 220px;
     padding-top: 180px;

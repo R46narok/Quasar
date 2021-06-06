@@ -1,0 +1,83 @@
+﻿@using System.Net.Http
+@using System.Net.Http.Json
+@using System.Net.Mime
+@using System.Text
+@using System.Text.Json
+@using Quasar.Core
+@using Quasar.Core.DataAccess
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject User User
+
+<div id="login" class="container reg-log-section">
+    <h3>Welcome back to Quasar</h3>
+    <p style="color: rgb(74,75,77);">Customize your experience and stay productive.</p>
+
+    <input type="text" class="username-field" placeholder="Username"
+           @bind="UsernameValue" @oninput="e => { UsernameValue = (string) e.Value; }">
+
+    <p></p>
+
+    <input type="password" class="pass-field" placeholder="Password"
+           @bind="PasswordValue" @oninput="e => { PasswordValue = (string) e.Value; }">
+
+    <p></p>
+
+    <button class="btn btn-primary" type="button" style="background-color: rgb(249,178,51); color: black;" @onclick="LoginBtnClicked">Login</button>
+    <button class="btn btn-primary secondary-btn" type="button" style="background-color: rgb(72,74,77);" @onclick="RegisterBtnClicked">Register</button>
+</div>
+
+@code {
+    private string UsernameValue { get; set; } = string.Empty;
+    private string PasswordValue { get; set; } = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        if (string.IsNullOrWhiteSpace(User.Username) == false)
+            NavigationManager.NavigateTo("/account");
+    }
+
+    private async Task LoginBtnClicked()
+    {
+        // validation checks
+
+        var json = JsonSerializer.Serialize(UsernameValue);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        var httpResponse = await HttpClient.PostAsync("api/user/credentials_info", content);
+
+        if (httpResponse.IsSuccessStatusCode)
+        {
+            var credentialsInfo = await httpResponse.Content.ReadFromJsonAsync<UserCredentialsInfo>();
+
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(PasswordValue);
+            byte[] passwordHash = UserCredentialsHasher
+                .GenerateHash(passwordBytes, credentialsInfo.PasswordSalt, credentialsInfo.PasswordIterations, passwordBytes.Length);
+
+            json = JsonSerializer.Serialize(new UserCredentials
+            {
+                Username = UsernameValue,
+                PasswordHash = passwordHash
+            });
+            content = new StringContent(json, Encoding.UTF8, "application/json");
+            httpResponse = await HttpClient.PostAsync("api/user/authenticate", content);
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                User user = await httpResponse.Content.ReadFromJsonAsync<User>();
+                if (user != null)
+                {
+                    User.Username = user.Username;
+                    User.Email = user.Email;
+                    
+                    NavMenu.Instance.Refresh();
+                    NavigationManager.NavigateTo("/");
+                }
+            }
+        }
+    }
+
+    private void RegisterBtnClicked()
+    {
+        NavigationManager.NavigateTo("/register");
+    }
+}

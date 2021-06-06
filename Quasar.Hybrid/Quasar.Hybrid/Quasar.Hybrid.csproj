@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -16,6 +16,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.MobileBlazorBindings" Version="0.5.50-preview" />
+    <PackageReference Include="Plugin.BluetoothLE" Version="6.3.0.19" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
@@ -23,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Quasar.Core.DataAccess\Quasar.Core.DataAccess.csproj" />
+    <ProjectReference Include="..\Quasar.Core.Native\Quasar.Core.Native.csproj" />
     <ProjectReference Include="..\Quasar.Core\Quasar.Core.csproj" />
     <ProjectReference Include="..\Quasar.Hybrid.Shared\Quasar.Hybrid.Shared.csproj" />
   </ItemGroup>

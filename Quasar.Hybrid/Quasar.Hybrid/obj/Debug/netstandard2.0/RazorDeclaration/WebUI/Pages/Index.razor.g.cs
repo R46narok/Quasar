@@ -72,8 +72,13 @@ using Quasar.Hybrid.Shared;
 
 #line default
 #line hidden
-#line 3 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Index.razor"
+#line 2 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Index.razor"
 using Quasar.Hybrid.Shared.HomeComponents;
+
+#line default
+#line hidden
+#line 3 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Index.razor"
+using Plugin.BluetoothLE;
 
 #line default
 #line hidden
@@ -85,6 +90,18 @@ using Quasar.Hybrid.Shared.HomeComponents;
         {
         }
         #pragma warning restore 1998
+#line 11 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Index.razor"
+       
+
+    protected override void OnInitialized()
+    {
+        NavigationManager.NavigateTo("/select_device");
+    }
+
+
+#line default
+#line hidden
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

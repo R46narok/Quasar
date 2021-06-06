@@ -154,5 +154,5 @@ D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server\obj\Debug\netcoreapp3
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server\obj\Debug\netcoreapp3.1\Razor\Pages\Login.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server\bin\Debug\netcoreapp3.1\System.Net.Http.Json.dll
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server\bin\Debug\netcoreapp3.1\System.Text.Json.dll
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Account.razor.g.cs
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server\obj\Debug\netcoreapp3.1\Razor\Pages\Account.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Profile.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server\obj\Debug\netcoreapp3.1\Razor\Pages\Profile.razor.g.cs

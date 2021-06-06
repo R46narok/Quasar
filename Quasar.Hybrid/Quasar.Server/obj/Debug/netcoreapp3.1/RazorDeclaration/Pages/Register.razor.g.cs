@@ -84,7 +84,7 @@ using Quasar.Hybrid.Shared;
 #nullable disable
 #nullable restore
 #line 2 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server\Pages\Register.razor"
-using Quasar.Hybrid.Shared.AccountComponents;
+using Quasar.Hybrid.Shared.ProfileComponents;
 
 #line default
 #line hidden

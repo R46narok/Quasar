@@ -10,7 +10,6 @@ D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstanda
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\App.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Pages\Index.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Shared\MainLayout.razor.g.cs
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Shared\NavMenu.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\_Imports.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\_Imports.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Quasar.Hybrid.RazorComponent.output.cache
@@ -22,7 +21,6 @@ D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstanda
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\App.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Pages\Index.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Shared\MainLayout.razor.g.cs
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Shared\NavMenu.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\_Imports.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\_Imports.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\staticwebassets\Quasar.Hybrid.StaticWebAssets.Manifest.cache
@@ -41,5 +39,18 @@ D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\bin\Release\netstanda
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\bin\Release\netstandard2.0\Quasar.Core.dll
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\bin\Release\netstandard2.0\Quasar.Core.DataAccess.pdb
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\bin\Release\netstandard2.0\Quasar.Core.pdb
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Shared\PrettyFooter.razor.g.cs
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Shared\PrettyFooter.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Pages\Login.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Pages\Profile.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Pages\Register.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\bin\Release\netstandard2.0\snappy32.dll
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\bin\Release\netstandard2.0\snappy64.dll
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\bin\Release\netstandard2.0\libzstd.dll
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Pages\Login.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Pages\Profile.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Pages\Register.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\bin\Release\netstandard2.0\Quasar.Core.Native.dll
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\bin\Release\netstandard2.0\Quasar.Core.Native.pdb
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Pages\SelectDevice.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Pages\SelectDevice.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Shared\DeviceFoundSection.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Shared\DeviceFoundSection.razor.g.cs

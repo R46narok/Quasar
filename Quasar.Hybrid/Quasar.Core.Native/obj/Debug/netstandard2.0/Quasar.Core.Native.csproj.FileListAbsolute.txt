@@ -1,0 +1,9 @@
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Native\bin\Debug\netstandard2.0\Quasar.Core.Native.deps.json
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Native\bin\Debug\netstandard2.0\Quasar.Core.Native.dll
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Native\bin\Debug\netstandard2.0\Quasar.Core.Native.pdb
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Native\obj\Debug\netstandard2.0\Quasar.Core.Native.csprojAssemblyReference.cache
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Native\obj\Debug\netstandard2.0\Quasar.Core.Native.AssemblyInfoInputs.cache
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Native\obj\Debug\netstandard2.0\Quasar.Core.Native.AssemblyInfo.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Native\obj\Debug\netstandard2.0\Quasar.Core.Native.csproj.CoreCompileInputs.cache
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Native\obj\Debug\netstandard2.0\Quasar.Core.Native.dll
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Native\obj\Debug\netstandard2.0\Quasar.Core.Native.pdb

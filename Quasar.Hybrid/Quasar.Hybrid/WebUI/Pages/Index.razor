@@ -1,9 +1,18 @@
 @page "/"
-
 @using Quasar.Hybrid.Shared.HomeComponents
-
+@using Plugin.BluetoothLE
+@inject NavigationManager NavigationManager
 <NewGenSection />
 <InteractionSection />
 <FeaturesSection />
 <GallerySection />
-<PrettyFooter />
+<MobileNavMenu />
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        NavigationManager.NavigateTo("/select_device");
+    }
+
+}

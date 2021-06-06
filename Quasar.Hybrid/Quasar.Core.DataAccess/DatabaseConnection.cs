@@ -5,18 +5,28 @@ using MongoDB.Driver;
 
 namespace Quasar.Core.DataAccess
 {
+    /// <summary>
+    /// Holds the threadpool which is connected to the database.
+    /// </summary>
     public sealed class DatabaseConnection
     {
-        private readonly MongoClient _client;
+        #region Constant fields
 
         public const string DatabaseName = "quasar";
         public const string UserCollection = "users";
         public const string RoleCollection = "roles";
+
+        #endregion
+
+        private readonly MongoClient _client;
+
         public IMongoDatabase Database { get; private set; }
 
         public DatabaseConnection(string connectionString)
         {
-            if (System.Diagnostics.Debugger.IsAttached)
+            // Check only in debug, in prod request the connection 
+            // string from the app.json.
+            if (System.Diagnostics.Debugger.IsAttached) 
             {
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be empty.");

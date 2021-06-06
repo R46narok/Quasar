@@ -39,7 +39,7 @@ namespace Quasar.Server
 
             // Pass the handler to httpclient(from you are calling api)
             HttpClient httpClient = new HttpClient(clientHandler);
-            httpClient.BaseAddress = new Uri("https://localhost:44310/");
+            httpClient.BaseAddress = new Uri("https://192.168.0.103:5001/");
 
             services.AddSingleton(httpClient);
 
