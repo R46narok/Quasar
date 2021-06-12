@@ -47,3 +47,9 @@ D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\obj\Release\ne
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\obj\Release\netstandard2.0\Razor\ProfileComponents\RegisterSection.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\obj\Release\netstandard2.0\RazorDeclaration\MobileNavMenu.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\obj\Release\netstandard2.0\Razor\MobileNavMenu.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\bin\Release\netstandard2.0\Quasar.Core.Native.dll
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\bin\Release\netstandard2.0\Quasar.Core.Native.pdb
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\obj\Release\netstandard2.0\RazorDeclaration\LabComponents\DeviceOwnedSection.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\obj\Release\netstandard2.0\RazorDeclaration\LabComponents\DevicesOwnedComponent.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\obj\Release\netstandard2.0\Razor\LabComponents\DeviceOwnedSection.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\obj\Release\netstandard2.0\Razor\LabComponents\DevicesOwnedComponent.razor.g.cs

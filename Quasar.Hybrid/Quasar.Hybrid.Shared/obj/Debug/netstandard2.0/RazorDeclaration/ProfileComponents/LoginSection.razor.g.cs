@@ -66,6 +66,10 @@ using Quasar.Core.DataAccess;
         #pragma warning restore 1998
 #line 31 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\ProfileComponents\LoginSection.razor"
        
+
+    [Parameter]
+    public Action AuthenticatedSuccessfully { get; set; }
+
     private string UsernameValue { get; set; } = string.Empty;
     private string PasswordValue { get; set; } = string.Empty;
 
@@ -105,8 +109,11 @@ using Quasar.Core.DataAccess;
                 {
                     User.Username = user.Username;
                     User.Email = user.Email;
-                    
-                    NavMenu.Instance.Refresh();
+                    User.PasswordHash = passwordHash;
+
+                    AuthenticatedSuccessfully?.Invoke();
+
+                    NavMenu.Instance?.Refresh();
                     NavigationManager.NavigateTo("/");
                 }
             }

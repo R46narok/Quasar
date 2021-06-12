@@ -54,3 +54,5 @@ D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstanda
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Pages\SelectDevice.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Shared\DeviceFoundSection.razor.g.cs
 D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Shared\DeviceFoundSection.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\RazorDeclaration\WebUI\Pages\Lab.razor.g.cs
+D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\obj\Release\netstandard2.0\Razor\WebUI\Pages\Lab.razor.g.cs

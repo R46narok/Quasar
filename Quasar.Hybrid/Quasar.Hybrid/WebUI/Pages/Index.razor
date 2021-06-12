@@ -1,7 +1,11 @@
 @page "/"
 @using Quasar.Hybrid.Shared.HomeComponents
 @using Plugin.BluetoothLE
+@using Quasar.Core.DataAccess
+@using Quasar.Core.Native
+
 @inject NavigationManager NavigationManager
+
 <NewGenSection />
 <InteractionSection />
 <FeaturesSection />
@@ -12,7 +16,19 @@
 
     protected override void OnInitialized()
     {
-        NavigationManager.NavigateTo("/select_device");
+
+        bool loggedIn = false;
+        using (UserStorageExternal storage = new UserStorageExternal())
+        {
+            User user = storage.ReadBufferContent();
+            if (user == null || string.IsNullOrWhiteSpace(user.Username))
+                loggedIn = false;
+            else
+                loggedIn = true;
+        }
+
+        // TODO: NavigationManager.NavigateTo(loggedIn ? "/" : "/login");
+        NavigationManager.NavigateTo("/");
     }
 
 }

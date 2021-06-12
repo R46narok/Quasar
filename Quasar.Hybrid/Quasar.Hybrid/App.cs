@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.MobileBlazorBindings;
 using Plugin.BluetoothLE;
 using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using Quasar.Core;
 using Quasar.Core.DataAccess;
+using Quasar.Core.Native;
 using Quasar.Core.Native.Bluetooth;
-using Xamarin.Essentials;
 using Xamarin.Forms;
+using PermissionStatus = Xamarin.Essentials.PermissionStatus;
 
 namespace Quasar.Hybrid
 {
@@ -54,13 +57,12 @@ namespace Quasar.Hybrid
 
         protected override void OnStart()
         {
-            CrossPermissions.Current.RequestPermissionAsync<LocationPermission>();
+            
         }
 
         protected override void OnSleep()
         {
         }
-
         protected override void OnResume()
         {
         }

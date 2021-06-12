@@ -102,7 +102,6 @@ using IDevice = Plugin.BluetoothLE.IDevice;
 
     protected override void OnInitialized()
     {
-
     }
 
 

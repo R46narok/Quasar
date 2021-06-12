@@ -110,6 +110,15 @@ using Quasar.Core.Native.Bluetooth;
         var device = factory.CreateDevice<DeviceGeneration1>(ConnectionManager, Device);
     }
 
+    private string GetDisplayName()
+    {
+        var name = Device.Name;
+
+        if (string.IsNullOrWhiteSpace(name))
+            return "Unknown";
+        return name;
+    }
+
 #line default
 #line hidden
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private BleConnectionManager ConnectionManager { get; set; }

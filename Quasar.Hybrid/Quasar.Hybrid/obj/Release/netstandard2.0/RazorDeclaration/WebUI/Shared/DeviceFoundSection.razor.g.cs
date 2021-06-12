@@ -87,6 +87,11 @@ using Quasar.Core;
 
 #line default
 #line hidden
+#line 4 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Shared\DeviceFoundSection.razor"
+using Quasar.Core.Native.Bluetooth;
+
+#line default
+#line hidden
     public partial class DeviceFoundSection : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -94,18 +99,29 @@ using Quasar.Core;
         {
         }
         #pragma warning restore 1998
-#line 15 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Shared\DeviceFoundSection.razor"
+#line 18 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Shared\DeviceFoundSection.razor"
        
     [Parameter]
     public IDevice Device { get; set; }
 
     private void OnConnectBtnClicked()
     {
+        IDeviceFactory factory = new WatchDeviceFactory();
+        var device = factory.CreateDevice<DeviceGeneration1>(ConnectionManager, Device);
+    }
 
+    private string GetDisplayName()
+    {
+        var name = Device.Name;
+
+        if (string.IsNullOrWhiteSpace(name))
+            return "Unknown";
+        return name;
     }
 
 #line default
 #line hidden
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private BleConnectionManager ConnectionManager { get; set; }
     }
 }
 #pragma warning restore 1591

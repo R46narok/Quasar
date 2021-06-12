@@ -77,6 +77,16 @@ using Quasar.Hybrid.Shared.ProfileComponents;
 
 #line default
 #line hidden
+#line 3 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Login.razor"
+using Quasar.Core.DataAccess;
+
+#line default
+#line hidden
+#line 4 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Login.razor"
+using Quasar.Core.Native;
+
+#line default
+#line hidden
     [Microsoft.AspNetCore.Components.RouteAttribute("/login")]
     public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -85,6 +95,21 @@ using Quasar.Hybrid.Shared.ProfileComponents;
         {
         }
         #pragma warning restore 1998
+#line 11 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Login.razor"
+       
+
+    private void OnAuthenticatedSuccessfully()
+    {
+        using (UserStorageExternal storage = new UserStorageExternal())
+        {
+            storage.WriteBufferContent(User);
+        }
+    }
+
+#line default
+#line hidden
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private User User { get; set; }
     }
 }
 #pragma warning restore 1591

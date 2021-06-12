@@ -82,6 +82,16 @@ using Plugin.BluetoothLE;
 
 #line default
 #line hidden
+#line 4 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Index.razor"
+using Quasar.Core.DataAccess;
+
+#line default
+#line hidden
+#line 5 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Index.razor"
+using Quasar.Core.Native;
+
+#line default
+#line hidden
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,12 +100,24 @@ using Plugin.BluetoothLE;
         {
         }
         #pragma warning restore 1998
-#line 11 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Index.razor"
+#line 15 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\Index.razor"
        
 
     protected override void OnInitialized()
     {
-        NavigationManager.NavigateTo("/select_device");
+
+        bool loggedIn = false;
+        using (UserStorageExternal storage = new UserStorageExternal())
+        {
+            User user = storage.ReadBufferContent();
+            if (user == null || string.IsNullOrWhiteSpace(user.Username))
+                loggedIn = false;
+            else
+                loggedIn = true;
+        }
+
+        // TODO: NavigationManager.NavigateTo(loggedIn ? "/" : "/login");
+        NavigationManager.NavigateTo("/");
     }
 
 

@@ -78,7 +78,12 @@ using Quasar.Core.Native.Bluetooth;
 #line default
 #line hidden
 #line 3 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\SelectDevice.razor"
-using Plugin.BluetoothLE;
+using Quasar.Core.Native;
+
+#line default
+#line hidden
+#line 4 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\SelectDevice.razor"
+using IDevice = Plugin.BluetoothLE.IDevice;
 
 #line default
 #line hidden
@@ -90,31 +95,30 @@ using Plugin.BluetoothLE;
         {
         }
         #pragma warning restore 1998
-#line 17 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\SelectDevice.razor"
+#line 20 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid\WebUI\Pages\SelectDevice.razor"
        
 
     private List<IDevice> _devices = new List<IDevice>();
 
     protected override void OnInitialized()
     {
-
     }
 
 
     private void OnScanBtnClicked()
     {
-        BleScanner scanner = new BleScanner();
-        scanner.CompatibleDeviceFound += (sender, device) =>
+        ConnectionManager.CompatibleDeviceFound += (sender, device) =>
         {
             _devices.Add(device);
             StateHasChanged();
         };
 
-        scanner.StartScan();
+        ConnectionManager.StartScan();
     }
 
 #line default
 #line hidden
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private BleConnectionManager ConnectionManager { get; set; }
     }
 }
 #pragma warning restore 1591
