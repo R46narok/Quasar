@@ -32,6 +32,11 @@ using Quasar.Core;
 
 #line default
 #line hidden
+#line 3 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\LabComponents\DeviceOwnedSection.razor"
+using Quasar.Core.Native.Bluetooth;
+
+#line default
+#line hidden
     public partial class DeviceOwnedSection : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -39,7 +44,7 @@ using Quasar.Core;
         {
         }
         #pragma warning restore 1998
-#line 22 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\LabComponents\DeviceOwnedSection.razor"
+#line 23 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\LabComponents\DeviceOwnedSection.razor"
        
     [Parameter]
     public IDevice Device { get; set; }

@@ -19,5 +19,7 @@ namespace Quasar.Core.DataAccess
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public int PasswordIterations { get; set; }
+
+        public Device[] DevicesOwned { get; set; }
     }
 }

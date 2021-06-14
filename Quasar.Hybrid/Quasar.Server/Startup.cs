@@ -31,6 +31,9 @@ namespace Quasar.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var config = new ServerConfig();
+            Configuration.Bind(config);
+
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
@@ -39,11 +42,11 @@ namespace Quasar.Server
 
             // Pass the handler to httpclient(from you are calling api)
             HttpClient httpClient = new HttpClient(clientHandler);
-            httpClient.BaseAddress = new Uri("https://192.168.0.103:5001/");
+            httpClient.BaseAddress = new Uri("https://localhost:5001/");
 
             services.AddSingleton(httpClient);
 
-            var dbConnection = new DatabaseConnection("mongodb://localhost:27017");
+            var dbConnection = new DatabaseConnection(config.MongoDB);
             services.AddSingleton(dbConnection);
             services.AddSingleton(new UserProvider(dbConnection));
             services.AddSingleton<User>();

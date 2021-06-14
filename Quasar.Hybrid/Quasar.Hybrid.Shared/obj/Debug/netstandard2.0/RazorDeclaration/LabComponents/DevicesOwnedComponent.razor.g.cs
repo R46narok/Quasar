@@ -22,6 +22,11 @@ using Quasar.Hybrid.Shared;
 
 #line default
 #line hidden
+#line 1 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\LabComponents\DevicesOwnedComponent.razor"
+using Quasar.Core.Native.Bluetooth;
+
+#line default
+#line hidden
     public partial class DevicesOwnedComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

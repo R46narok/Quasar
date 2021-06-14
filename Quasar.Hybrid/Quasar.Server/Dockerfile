@@ -11,6 +11,7 @@ COPY ["Quasar.Server/Quasar.Server.csproj", "Quasar.Server/"]
 COPY ["Quasar.Core.DataAccess/Quasar.Core.DataAccess.csproj", "Quasar.Core.DataAccess/"]
 COPY ["Quasar.Core/Quasar.Core.csproj", "Quasar.Core/"]
 COPY ["Quasar.Hybrid.Shared/Quasar.Hybrid.Shared.csproj", "Quasar.Hybrid.Shared/"]
+COPY ["Quasar.Core.Native/Quasar.Core.Native.csproj", "Quasar.Core.Native/"]
 RUN dotnet restore "Quasar.Server/Quasar.Server.csproj"
 COPY . .
 WORKDIR "/src/Quasar.Server"

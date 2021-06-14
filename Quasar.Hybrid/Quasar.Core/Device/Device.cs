@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 
-namespace Quasar.Core.Device
+namespace Quasar.Core
 {
     [BsonIgnoreExtraElements]
     public class Device

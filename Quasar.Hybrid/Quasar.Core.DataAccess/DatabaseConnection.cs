@@ -22,10 +22,15 @@ namespace Quasar.Core.DataAccess
 
         public IMongoDatabase Database { get; private set; }
 
-        public DatabaseConnection(string connectionString)
+        public string ConnectionString => $@"";
+
+        public DatabaseConnection(MongoDBConfig config)
         {
             // Check only in debug, in prod request the connection 
             // string from the app.json.
+
+            var connectionString = config.ConnectionString;
+
             if (System.Diagnostics.Debugger.IsAttached) 
             {
                 if (string.IsNullOrWhiteSpace(connectionString))

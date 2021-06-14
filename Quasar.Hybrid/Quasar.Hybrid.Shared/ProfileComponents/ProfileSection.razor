@@ -1,4 +1,7 @@
-﻿<div class="container profile-section">
+﻿@using Quasar.Core.DataAccess
+@inject User User
+
+<div class="container profile-section">
     <div class="row">
         <div class="col profile-nav">
             <a class="text-left profile-nav-link" href="#" style="/*color: rgb(0,0,0);*/font-size: 20px;">Overview</a><a class="text-left profile-nav-link" href="#" style="/*color: rgb(0,0,0);*/font-size: 20px;">Configurations</a><a class="text-left profile-nav-link"
@@ -6,20 +9,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-3">
+        <div class="col-md-3 profile-content">
             <div>
                 <img class="rounded-circle avatar-img" src="img/avatar.jpg">
-                <h4 class="text-left">Username</h4>
+                <h4 class="profile-ue ">@User.Username</h4>
             </div>
-            <h5 class="text-left" style="color: rgb(123,120,120);">Email</h5><button class="btn btn-primary edit-profile-btn" type="button" style="background-color: rgb(249,178,51);color: rgb(0,0,0);">Edit profile</button>
+            <h5 class="profile-ue" style="color: rgb(123,120,120);">@User.Email</h5>
+            <button class="btn btn-primary edit-profile-btn" type="button" style="background-color: rgb(249,178,51);color: rgb(0,0,0);">Edit profile</button>
         </div>
-        <div class="col-9">
+        <div class="col-md-9">
             <p class="text-left profile-section-title">Devices owned:</p>
             <div class="shadow" style="padding: 10px;text-align: right;margin-top: -10px;">
                 <p class="text-left">{DEVICE_NAME} - Gen 1<br></p><button class="btn btn-primary text-right" type="button" style="background-color: rgb(249,178,51);color: rgb(0,0,0);">Manage devices</button>
             </div>
             <div class="row">
-                <div class="col-8">
+                <div class="col-md-8">
                     <p class="text-left profile-section-title">Lab activity:</p>
                 </div>
                 <div class="col" style="text-align: right;">

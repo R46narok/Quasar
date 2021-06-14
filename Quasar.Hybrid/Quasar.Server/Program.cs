@@ -23,6 +23,7 @@ namespace Quasar.Server
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseSetting(WebHostDefaults.DetailedErrorsKey, "true");
                 });
     }
 }

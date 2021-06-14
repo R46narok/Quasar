@@ -11,9 +11,13 @@ namespace Quasar.Core.Native.Bluetooth
 
     public class BleConnection
     {
+        // From 'gatt_api.h'
+        public const int MaxMtuSize = 517;
+
         private IDevice _device;
         private readonly List<IGattCharacteristic> _gattCharacteristics;
         private readonly List<IGattService> _services;
+        private int _mtuSize = -1;
 
         public ConnectionStatus Status { get; private set; }
         public List<IGattCharacteristic> Characteristics => _gattCharacteristics;
@@ -48,6 +52,18 @@ namespace Quasar.Core.Native.Bluetooth
             }
         }
 
+        public bool WaitForMtuResize(long timeout)
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            while (true)
+            {
+                if (_mtuSize != -1) return true;
+                if (sw.ElapsedMilliseconds > timeout) return false;
+            }
+        }
+
         public bool WaitForServiceDiscovery(long timeout, int serviceCount)
         {
             Stopwatch sw = new Stopwatch();
@@ -75,6 +91,13 @@ namespace Quasar.Core.Native.Bluetooth
         private void OnConnected(IDevice device)
         {
             _device = device;
+            _device.RequestMtu(MaxMtuSize).Subscribe(size =>
+            {
+                _mtuSize = size;
+            });
+
+            WaitForMtuResize(5000);
+
             _device.DiscoverServices().Subscribe(service =>
             {
                 _services.Add(service);

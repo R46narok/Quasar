@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  quasar.server:
-    image: ${DOCKER_REGISTRY-}quasarserver
-    build:
-      context: .
-      dockerfile: Quasar.Server/Dockerfile

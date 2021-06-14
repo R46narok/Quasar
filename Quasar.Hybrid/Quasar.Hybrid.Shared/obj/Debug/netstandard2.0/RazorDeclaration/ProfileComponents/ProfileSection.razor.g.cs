@@ -22,6 +22,11 @@ using Quasar.Hybrid.Shared;
 
 #line default
 #line hidden
+#line 1 "D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Hybrid.Shared\ProfileComponents\ProfileSection.razor"
+using Quasar.Core.DataAccess;
+
+#line default
+#line hidden
     public partial class ProfileSection : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -29,6 +34,7 @@ using Quasar.Hybrid.Shared;
         {
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private User User { get; set; }
     }
 }
 #pragma warning restore 1591
