@@ -33,13 +33,13 @@ services:
       MongoDB__Host: mongo
     image: quasarserver
     ports:
-    - target: 80
-    - target: 443
     - published: 5000
-      target: 5000
+      target: 80
+    - target: 80
     - published: 5001
-      target: 5001
+      target: 443
+    - target: 443
     volumes:
-    - C:\Users\Asus\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
-    - C:\Users\Asus\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\Acer\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Acer\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
 version: '3.4'

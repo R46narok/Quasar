@@ -4548,7 +4548,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Asus\\.nuget\\packages\\": {},
+    "C:\\Users\\Acer\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
@@ -4557,7 +4557,7 @@
       "projectUniqueName": "D:\\Development\\Projects\\Quasar\\Quasar.Hybrid\\Quasar.Hybrid.Android\\Quasar.Hybrid.Android.csproj",
       "projectName": "Quasar.Hybrid.Android",
       "projectPath": "D:\\Development\\Projects\\Quasar\\Quasar.Hybrid\\Quasar.Hybrid.Android\\Quasar.Hybrid.Android.csproj",
-      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
       "outputPath": "D:\\Development\\Projects\\Quasar\\Quasar.Hybrid\\Quasar.Hybrid.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
@@ -4565,7 +4565,7 @@
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -4574,6 +4574,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\Acer\\source\\repos\\local-nuget-feed": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

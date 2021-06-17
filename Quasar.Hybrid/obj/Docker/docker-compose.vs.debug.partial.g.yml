@@ -16,7 +16,7 @@ services:
     volumes:
       - D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Server:/app
       - D:\Development\Projects\Quasar\Quasar.Hybrid:/src
-      - C:\Users\Asus\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\Acer\vsdbg\vs2017u5:/remote_debugger:rw
 #$nuget_volume_mapping_quasar.server$
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro

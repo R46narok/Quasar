@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "bJOhkBmyJs1ogU7lbI+JCPPEdBOEvXLr1Yypc8yiquzUeEbuJt2h0GlO9zeHWzAEA5zG2nIf0W3t7+Pmv+XIIw==",
+  "dgSpecHash": "UHp1hW0yqTDI5IlCfBo9OQl227sdo6aV6px8aFZ2zRc2pPeFAYDOEa9mlJyWCQRLrNqfXke49CnlUAJGfnD3Jg==",
   "success": true,
   "projectFilePath": "D:\\Development\\Projects\\Quasar\\Quasar.Hybrid\\Quasar.Core\\Quasar.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Asus\\.nuget\\packages\\mongodb.bson\\2.12.3\\mongodb.bson.2.12.3.nupkg.sha512",
-    "C:\\Users\\Asus\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\Asus\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\mongodb.bson\\2.12.3\\mongodb.bson.2.12.3.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
