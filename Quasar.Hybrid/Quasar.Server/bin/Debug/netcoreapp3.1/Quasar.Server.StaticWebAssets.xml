@@ -1,4 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="_content/Quasar.Hybrid.Shared" Path="/src/Quasar.Hybrid.Shared/wwwroot/" />
-</StaticWebAssets>

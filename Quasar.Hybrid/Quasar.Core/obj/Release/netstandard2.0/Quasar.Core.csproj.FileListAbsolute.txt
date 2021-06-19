@@ -1,9 +1,0 @@
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core\bin\Release\netstandard2.0\Quasar.Core.deps.json
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core\bin\Release\netstandard2.0\Quasar.Core.dll
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core\bin\Release\netstandard2.0\Quasar.Core.pdb
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core\obj\Release\netstandard2.0\Quasar.Core.AssemblyInfoInputs.cache
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core\obj\Release\netstandard2.0\Quasar.Core.AssemblyInfo.cs
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core\obj\Release\netstandard2.0\Quasar.Core.csproj.CoreCompileInputs.cache
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core\obj\Release\netstandard2.0\Quasar.Core.dll
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core\obj\Release\netstandard2.0\Quasar.Core.pdb
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core\obj\Release\netstandard2.0\Quasar.Core.csprojAssemblyReference.cache

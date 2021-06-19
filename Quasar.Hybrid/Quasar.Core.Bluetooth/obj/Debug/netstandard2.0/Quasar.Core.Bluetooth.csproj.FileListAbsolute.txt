@@ -1,9 +1,0 @@
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Bluetooth\bin\Debug\netstandard2.0\Quasar.Core.Bluetooth.deps.json
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Bluetooth\bin\Debug\netstandard2.0\Quasar.Core.Bluetooth.dll
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Bluetooth\bin\Debug\netstandard2.0\Quasar.Core.Bluetooth.pdb
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Bluetooth\obj\Debug\netstandard2.0\Quasar.Core.Bluetooth.csprojAssemblyReference.cache
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Bluetooth\obj\Debug\netstandard2.0\Quasar.Core.Bluetooth.AssemblyInfoInputs.cache
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Bluetooth\obj\Debug\netstandard2.0\Quasar.Core.Bluetooth.AssemblyInfo.cs
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Bluetooth\obj\Debug\netstandard2.0\Quasar.Core.Bluetooth.csproj.CoreCompileInputs.cache
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Bluetooth\obj\Debug\netstandard2.0\Quasar.Core.Bluetooth.dll
-D:\Development\Projects\Quasar\Quasar.Hybrid\Quasar.Core.Bluetooth\obj\Debug\netstandard2.0\Quasar.Core.Bluetooth.pdb
