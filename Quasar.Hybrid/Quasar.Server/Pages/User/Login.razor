@@ -1,0 +1,38 @@
+﻿@page "/login"
+@using Microsoft.AspNetCore.Identity
+@using Quasar.Core.Data
+@using Quasar.Core.Models
+@using Quasar.Hybrid.Shared.Storage
+@using Quasar.Hybrid.Shared.Components
+@using Microsoft.AspNetCore.Authentication
+@using SignInResult = Microsoft.AspNetCore.Identity.SignInResult
+@using System.Threading
+
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@inject UserManager<ApplicationUser> UserManager
+
+<Quasar.Hybrid.Shared.Components.User.Login Model="@Model" ModelSubmittedAsync="@OnModelSubmittedAsync" />
+
+@code {
+
+    private LoginModel Model { get; set; } = new LoginModel();
+
+    private async Task OnModelSubmittedAsync()
+    {
+        if (Model.IsValid())
+        {
+            var user = await UserManager.FindByNameAsync(Model.UserName);
+
+            if (user != null && await UserManager.CheckPasswordAsync(user, Model.Password))
+            {
+                await LocalStorage.SetItemAsync(JSRuntime, "user", user);
+
+                NavigationMenu.Instance.ShowUserNavigation = true;
+                NavigationManager.NavigateTo("/");
+
+            }
+        }
+
+    }
+}

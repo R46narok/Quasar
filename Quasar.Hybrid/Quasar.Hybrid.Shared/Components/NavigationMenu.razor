@@ -1,0 +1,116 @@
+﻿@using Quasar.Core
+@using Microsoft.JSInterop
+@using Quasar.Core.Data
+
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@inject IPlatform Platform
+
+
+<div id=@(Platform.IsBlazorServer ? "" : "content-desktop")>
+
+    <nav class="navbar navbar-light navbar-expand-md fixed-top custom-header">
+        <div class="container-fluid">
+            <div>
+                <a class="navbar-brand" href="/" style="font-family: ABeeZee, sans-serif;">
+                    Quasar
+                    <span>
+                        &nbsp;
+                        <img class="img-fluid quasar-icon" src="/img/quasar(1).svg">
+                    </span>
+                </a>
+                <button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav links">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Privacy</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Lab</a></li>
+                </ul>
+
+                @if (!ShowUserNavigation)
+                {
+                    <button class="btn btn-primary ml-auto login-btn" type="button" style="background-color: rgb(41,44,47);"
+                            @onclick="LoginBtnClicked">
+                        Log in
+                    </button>
+                    <button class="btn btn-primary register-btn" type="button" style="background-color: rgb(41,44,47);"
+                            @onclick="RegisterBtnClicked">
+                        Register
+                    </button>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
+                                <img class="dropdown-image" src="img/avatar.jpg">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <a class="dropdown-item" role="presentation" href="/profile">Profile</a>
+                                <a class="dropdown-item" role="presentation" href="#">Settings</a>
+                                <a class="dropdown-item" role="presentation" href="#">Logout </a>
+                            </div>
+                        </li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+@if (Platform.IsBlazorMobile)
+{
+    @if (ShowUserNavigation)
+    {
+        <div id="content-mobile">
+            <div class="shadow-lg" style="background-color: white; position: fixed; bottom: 0; width: 100%; /*text-align: center;*//*align-items: start;*/">
+                <div class="container" style="text-align: center; padding: 20px;">
+                    <div class="row">
+                        <div class="col-4"><a class="btn mobile-nav-link" href="/"><span><i class="fa fa-home mobile-nav-icon"></i></span>Home</a></div>
+                        <div class="col-4"><a class="btn mobile-nav-link" href="/lab"><span><i class="icon ion-erlenmeyer-flask-bubbles mobile-nav-icon"></i></span>Lab</a></div>
+                        <div class="col-4"><a class="btn mobile-nav-link" href="/profile"><span><i class="fa fa-user mobile-nav-icon"></i></span>Profile</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+@code {
+
+    public static NavigationMenu Instance { get; private set; }
+
+    private bool _showUserNavigation = false;
+
+    public bool ShowUserNavigation
+    {
+        get => _showUserNavigation;
+        set
+        {
+            _showUserNavigation = value;
+            StateHasChanged();
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        Instance = this;
+    }
+
+    private void RegisterBtnClicked()
+    {
+        NavigationManager.NavigateTo("/register/");
+    }
+
+    private void LoginBtnClicked()
+    {
+        NavigationManager.NavigateTo("/login/");
+    }
+
+}

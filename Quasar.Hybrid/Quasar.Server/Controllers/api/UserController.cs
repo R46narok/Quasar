@@ -1,70 +1,100 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.JSInterop;
 using Quasar.Core;
-using Quasar.Core.DataAccess;
+using Quasar.Core.Models;
+using Quasar.Core.Data;
+using Quasar.Hybrid.Shared.Components;
+using Quasar.Hybrid.Shared.Storage;
 
 namespace Quasar.Server.Controllers.api
 {
-    [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly UserProvider _provider;
         private readonly ILogger<UserController> _logger;
-        public UserController(UserProvider provider, ILogger<UserController> logger)
-        {
-            _provider = provider;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+
+        public UserController(ILogger<UserController> logger, 
+            UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        { 
             _logger = logger;
+            _userManager = userManager;
+            _roleManager = roleManager;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("authenticate")]
+        public async Task<ActionResult<ApplicationUser>> AuthenticateAsync([FromBody] LoginModel model)
+        {
+            if (model.IsValid())
+            {
+                var user = await _userManager.FindByNameAsync(model.UserName);
+
+                if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+                {
+                    return Ok(user);
+                }
+
+                return BadRequest();
+            }
+
+            return UnprocessableEntity();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("authenticate_hash")]
+        public async Task<ActionResult<bool>> AuthenticateByHashAsync([FromBody] ApplicationUser model)
+        {
+            var user = await _userManager.FindByNameAsync(model.UserName);
+
+            if (user != null && user.PasswordHash == model.PasswordHash)
+            {
+                return Ok(true);
+            }
+
+            return Ok(false);
         }
 
         [HttpPost]
         [Route("register")]
-        public ActionResult<bool> RegisterUser([FromBody] User user)
+        public async Task<ActionResult<ApplicationUser>> RegisterAsync([FromBody] RegisterModel model)
         {
-            if (string.IsNullOrWhiteSpace(user.Email) ||
-                string.IsNullOrWhiteSpace(user.Username) ||
-                user.PasswordHash == null || user.PasswordHash.Length == 0 ||
-                user.PasswordSalt == null || user.PasswordSalt.Length == 0 ||
-                user.PasswordIterations <= 0)
-                return BadRequest();
+            if (model.IsValid())
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = model.UserName,
+                    Email = model.Email
+                };
 
-            _logger.LogInformation($"New user registration: {user.Username} with email {user.Email}");
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result == IdentityResult.Success)
+                {
+                    await _userManager.AddClaimAsync(user, ApplicationClaimTypes.UserClaim);
+                    return Ok();
+                }
+            }
 
-            return _provider.RegisterUser(user);
-        }
-
-        // TODO: Log ip of the client - sensitive info.
-        [HttpPost]
-        [Route("credentials_info")]
-        public ActionResult<UserCredentialsInfo> CredentialsInfo([FromBody] string username)
-        {
-            if (string.IsNullOrWhiteSpace(username))
-                return BadRequest();
-
-            _logger.LogInformation($"UserCredentialsInfo of {username} requested by [IP]");
-
-            return _provider.GetCredentialsInfo(username);
-        }
-
-        [HttpPost]
-        [Route("authenticate")]
-        public ActionResult<User> AuthenticateUser([FromBody] UserCredentials credentials)
-        {
-            if (string.IsNullOrWhiteSpace(credentials.Username) ||
-                credentials.PasswordHash == null || credentials.PasswordHash.Length == 0)
-                return BadRequest();
-
-            var user = _provider.AuthenticateUser(credentials);
-
-            _logger.LogInformation($"Authentication of {credentials.Username}, status: {user != null}");
-
-            return user;
+            return UnprocessableEntity();
         }
     }
 }

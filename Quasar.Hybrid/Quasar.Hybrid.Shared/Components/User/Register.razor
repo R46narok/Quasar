@@ -1,0 +1,46 @@
+﻿@using Quasar.Core.Models
+@using MongoDB.Bson
+
+@inject NavigationManager NavigationManager
+
+<div id="login" class="container reg-log-section">
+    <h3>Join team Quasar now</h3>
+    <p style="color: rgb(74,75,77);">Experience fully your Gen1 device. Improve your everyday life.</p>
+
+    <input type="text" class="username-field" placeholder="Username"
+           @bind="Model.UserName" @oninput="e => { Model.UserName = (string) e.Value; }">
+
+    <p></p>
+
+    <input type="email" class="email-field" placeholder="Email@example.com"
+           @bind="Model.Email" @oninput="@((e) => { Model.Email = (string)e.Value;})">
+
+    <p></p>
+
+    <input type="password" class="pass-field" placeholder="Password"
+           @bind="Model.Password" @oninput="e => { Model.Password = (string) e.Value; }">
+
+    <p></p>
+
+    <button class="btn btn-primary" type="button" style="background-color: rgb(249, 178, 51); color: black;" @onclick="RegisterBtnClicked">Register</button>
+    <button class="btn btn-primary secondary-btn" type="button" style="background-color: rgb(72,74,77);" @onclick="LoginBtnClicked">Log in</button>
+</div>
+
+@code {
+
+    [Parameter]
+    public RegisterModel Model { get; set; }
+
+    [Parameter]
+    public ModelSubmittedAsync ModelSubmittedAsync { get; set; }
+
+    private void RegisterBtnClicked()
+    {
+        ModelSubmittedAsync?.Invoke();
+    }
+
+    private void LoginBtnClicked()
+    {
+        NavigationManager.NavigateTo("/login");
+    }
+}

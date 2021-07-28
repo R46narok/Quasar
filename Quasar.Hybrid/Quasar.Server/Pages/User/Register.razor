@@ -1,0 +1,42 @@
+﻿@page "/register"
+@using Quasar.Core.Models
+@using Microsoft.CodeAnalysis.CSharp.Syntax
+@using Microsoft.AspNetCore.Identity
+@using Quasar.Core.Data
+@using Quasar.Hybrid.Shared.Components
+@using Quasar.Hybrid.Shared.Storage
+
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+
+<Quasar.Hybrid.Shared.Components.User.Register Model="@Model" ModelSubmittedAsync="@OnModelSubmittedAsync" />
+
+@code {
+
+    private RegisterModel Model { get; set; } = new RegisterModel();
+
+    private async Task OnModelSubmittedAsync()
+    {
+        if (Model.IsValid())
+        {
+            var user = new ApplicationUser
+            {
+                UserName = Model.UserName,
+                Email = Model.Email
+            };
+
+            var result = await UserManager.CreateAsync(user, Model.Password);
+            if (result == IdentityResult.Success)
+            {
+                result = await UserManager.AddClaimAsync(user, ApplicationClaimTypes.UserClaim);
+                await LocalStorage.SetItemAsync(JSRuntime, "user", user);
+
+                NavigationMenu.Instance.ShowUserNavigation = true;
+                NavigationManager.NavigateTo("/");
+            }
+        }
+    }
+
+}

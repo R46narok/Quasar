@@ -1,0 +1,25 @@
+﻿@page "/lab"
+
+@using Quasar.Hybrid.Shared.Components
+
+<div style="background-color: rgb(33,37,41);/*text-align: right;*/padding: 2px;">
+    <div class="row">
+        <div class="col">
+            <h1 style="color: rgb(255,255,255);margin-left: 10px;margin-top: 5px;"><span></span>@_labComponentTitle</h1>
+        </div>
+        <div class="col"> 
+            <div class="dropdown dropleft" style=" float: right; margin-right: 5px;">
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"; style="margin-top: 15px; background-color: inherit; color: white;/*align-self: end;*/border: none;"></button>
+                <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" role="presentation" href="#">Devices</a>
+                    <a class="dropdown-item" role="presentation" href="#">Gesture sets</a>
+                    <a class="dropdown-item" role="presentation" href="#">Public</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _labComponentTitle = "Devices";
+}

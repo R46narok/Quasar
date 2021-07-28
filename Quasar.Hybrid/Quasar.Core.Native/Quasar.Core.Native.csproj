@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Quasar.Core.DataAccess\Quasar.Core.DataAccess.csproj" />
+    <ProjectReference Include="..\Quasar.Core\Quasar.Core.csproj" />
   </ItemGroup>
 
 </Project>

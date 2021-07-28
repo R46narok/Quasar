@@ -1,0 +1,35 @@
+﻿@page "/register"
+@using Quasar.Core.Models
+@using Microsoft.AspNetCore.Identity
+@using Quasar.Core.Data
+@using Quasar.Hybrid.Shared.Components
+@using Quasar.Hybrid.Shared.Storage
+@using System.Net.Http.Headers
+@using System.Text
+@using System.Text.Json
+@using Quasar.Core.Native.Consumers
+
+@inject IJSRuntime JSRuntime
+@inject HttpClient HttpClient
+
+<Quasar.Hybrid.Shared.Components.User.Register Model="@Model" ModelSubmittedAsync="@OnModelSubmittedAsync" />
+
+@code {
+
+    private RegisterModel Model { get; set; } = new RegisterModel();
+
+    private async Task OnModelSubmittedAsync()
+    {
+        if (Model.IsValid())
+        {
+            UserConsumer consumer = new UserConsumer(HttpClient);
+            consumer.RegistrationResult += (sender, args) =>
+            {
+
+            };
+
+            await consumer.RegisterAsync(Model);
+        }
+    }
+
+}

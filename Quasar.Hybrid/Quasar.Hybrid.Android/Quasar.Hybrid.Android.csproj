@@ -111,10 +111,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Quasar.Core.DataAccess\Quasar.Core.DataAccess.csproj">
-      <Project>{10ebcb07-a55e-4a67-af8a-7fd4a3612b4c}</Project>
-      <Name>Quasar.Core.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Quasar.Core.Native\Quasar.Core.Native.csproj">
       <Project>{dbe822c8-fc61-44ad-9d8a-61a48f528c8c}</Project>
       <Name>Quasar.Core.Native</Name>

@@ -1,34 +1,34 @@
 @page "/"
-@using Quasar.Hybrid.Shared.HomeComponents
+@using Quasar.Hybrid.Shared.Components.Home
 @using Plugin.BluetoothLE
-@using Quasar.Core.DataAccess
+@using Quasar.Core.Data
+@using Quasar.Core.Models
 @using Quasar.Core.Native
+@using Quasar.Core.Native.Consumers
+@using Quasar.Hybrid.Shared.Components
 
 @inject NavigationManager NavigationManager
-
-<NewGenSection />
-<InteractionSection />
-<FeaturesSection />
-<GallerySection />
-<MobileNavMenu />
+@inject HttpClient HttpClient
+<NewGeneration />
+<Interaction />
+<Features />
+<Gallery />
 
 @code {
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-
-        bool loggedIn = false;
-        using (UserStorageExternal storage = new UserStorageExternal())
+        using (var storageExternal = new BlazorStorageExternal<ApplicationUser>())
         {
-            User user = storage.ReadBufferContent();
-            if (user == null || string.IsNullOrWhiteSpace(user.Username))
-                loggedIn = false;
-            else
-                loggedIn = true;
+            UserConsumer consumer = new UserConsumer(HttpClient);
+            consumer.AuthenticationByHashResult+= (sender, args) =>
+            {
+                if (args.Consumable == false) NavigationManager.NavigateTo("/login");
+                else NavigationMenu.Instance.ShowUserNavigation = true;
+            };
+
+            var content = storageExternal.ReadBufferContent();
+            await consumer.AuthenticateByHashAsync(content);
         }
-
-        // TODO: NavigationManager.NavigateTo(loggedIn ? "/" : "/login");
-        NavigationManager.NavigateTo("/");
     }
-
 }

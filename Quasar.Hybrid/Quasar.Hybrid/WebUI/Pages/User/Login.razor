@@ -1,0 +1,52 @@
+﻿@page "/login"
+@using Quasar.Hybrid.Shared.Components.User
+@using Quasar.Core.Native
+@using Quasar.Core.Models
+@using Quasar.Core.Native.Consumers
+@using System.Text.Json
+@using System.Text
+@using Quasar.Core.Data
+@using Quasar.Hybrid.Shared.Components
+
+@inject NavigationManager NavigationManager
+@inject HttpClient HttpClient
+
+<Quasar.Hybrid.Shared.Components.User.Login Model="@Model" ModelSubmittedAsync="@OnModelSubmittedAsync" />
+
+@code {
+
+    private LoginModel Model { get; set; } = new LoginModel();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        NavigationMenu.Instance.ShowUserNavigation = false;
+    }
+
+    private async Task OnModelSubmittedAsync()
+    {
+        if (Model.IsValid())
+        {
+            using (var storageExternal = new BlazorStorageExternal<ApplicationUser>())
+            {
+                var v = storageExternal.ReadBufferContent();
+            }
+
+            UserConsumer consumer = new UserConsumer(HttpClient);
+            consumer.AuthenticationResult += (sender, args) =>
+            {
+                using (var storageExternal = new BlazorStorageExternal<ApplicationUser>())
+                {
+                    storageExternal.WriteBufferContent(args.Consumable);
+                }
+                using (var storageExternal = new BlazorStorageExternal<ApplicationUser>())
+                {
+                    var v = storageExternal.ReadBufferContent();
+                }
+                NavigationMenu.Instance.ShowUserNavigation = true;
+            };
+
+            await consumer.AuthenticateAsync(Model);
+        }
+    }
+}

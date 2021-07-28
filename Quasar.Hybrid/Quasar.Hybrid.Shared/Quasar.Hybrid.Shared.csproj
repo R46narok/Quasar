@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -14,13 +14,13 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Quasar.Core.DataAccess\Quasar.Core.DataAccess.csproj" />
     <ProjectReference Include="..\Quasar.Core.Native\Quasar.Core.Native.csproj" />
     <ProjectReference Include="..\Quasar.Core\Quasar.Core.csproj" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <Folder Include="Components\Lab\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 

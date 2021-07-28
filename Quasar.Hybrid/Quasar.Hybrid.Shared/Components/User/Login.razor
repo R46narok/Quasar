@@ -1,0 +1,46 @@
+﻿@using System.Net.Http
+@using System.Net.Http.Json
+@using System.Net.Mime
+@using System.Text
+@using System.Text.Json
+@using Quasar.Core
+@using Quasar.Core.Models
+
+@inject NavigationManager NavigationManager
+
+<div id="login" class="container reg-log-section">
+    <h3>Welcome back to Quasar</h3>
+    <p style="color: rgb(74,75,77);">Customize your experience and stay productive.</p>
+
+    <input type="text" class="username-field" placeholder="Username"
+           @bind="Model.UserName" @oninput="e => { Model.UserName = (string) e.Value; }">
+
+    <p></p>
+
+    <input type="password" class="pass-field" placeholder="Password"
+           @bind="Model.Password" @oninput="e => { Model.Password = (string) e.Value; }">
+
+    <p></p>
+
+    <button class="btn btn-primary" type="button" style="background-color: rgb(249,178,51); color: black;" @onclick="LoginBtnClicked">Login</button>
+    <button class="btn btn-primary secondary-btn" type="button" style="background-color: rgb(72,74,77);" @onclick="RegisterBtnClicked">Register</button>
+</div>
+
+@code {
+
+    [Parameter]
+    public LoginModel Model { get; set; }
+
+    [Parameter]
+    public ModelSubmittedAsync ModelSubmittedAsync { get; set; }
+
+    private void LoginBtnClicked()
+    {
+        ModelSubmittedAsync?.Invoke();
+    }
+
+    private void RegisterBtnClicked()
+    {
+        NavigationManager.NavigateTo("/register");
+    }
+}

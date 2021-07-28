@@ -13,9 +13,14 @@ using System.Net.Http;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Quasar.Core;
-using Quasar.Core.DataAccess;
-
+using Quasar.Core.Data;
+using Quasar.Core.Native;
+using Quasar.Server.Data;
 namespace Quasar.Server
 {
     public class Startup
@@ -31,25 +36,41 @@ namespace Quasar.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var config = new ServerConfig();
-            Configuration.Bind(config);
-
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
 
-            // Pass the handler to httpclient(from you are calling api)
-            HttpClient httpClient = new HttpClient(clientHandler);
-            httpClient.BaseAddress = new Uri("https://localhost:443/");
+            /*HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;*/
 
-            services.AddSingleton(httpClient);
+            services.AddScoped<IPlatform, BlazorServerPlatform>();
 
-            var dbConnection = new DatabaseConnection(config.MongoDB);
-            services.AddSingleton(dbConnection);
-            services.AddSingleton(new UserProvider(dbConnection));
-            services.AddSingleton<User>();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+            
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = $"https://{Configuration["Auth0:Domain"]}/";
+                options.Audience = Configuration["Auth0:Audience"];
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AddEditUser", policy => {
+                    policy.RequireClaim("Add User", "Add User");
+                    policy.RequireClaim("Edit User", "Edit User");
+                });
+                options.AddPolicy("DeleteUser", policy => policy.RequireClaim("Delete User", "Delete User"));
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,11 +86,14 @@ namespace Quasar.Server
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -24,9 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Quasar.Core.DataAccess\Quasar.Core.DataAccess.csproj" />
     <ProjectReference Include="..\Quasar.Core.Native\Quasar.Core.Native.csproj" />
     <ProjectReference Include="..\Quasar.Core\Quasar.Core.csproj" />
     <ProjectReference Include="..\Quasar.Hybrid.Shared\Quasar.Hybrid.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="WebUI\Component\" />
   </ItemGroup>
 </Project>
